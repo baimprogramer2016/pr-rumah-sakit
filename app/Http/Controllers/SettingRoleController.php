@@ -35,7 +35,7 @@ class SettingRoleController extends Controller
                 }
             }
 
-            $datamenu       = Menu::where('route_category','!=','superadmin')->get();
+            $datamenu       = Menu::whereNotIn('route_category',['superadmin','subadmin'])->get();
             $datarolemenu   = RoleMenu::where('role', $role)->get();
             foreach($datamenu as $item_menu)
             {

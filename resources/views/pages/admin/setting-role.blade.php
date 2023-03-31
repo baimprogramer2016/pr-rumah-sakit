@@ -56,7 +56,7 @@
             <ul class="list-group">
                 @foreach ($data_menu as $item_menu)
                 <li class="list-group-item">
-                    {{ $item_menu->route_name }}
+                    {{ '('.Ucwords($item_menu->route_category).') '.$item_menu->route_name}}
                     <div class="material-switch float-right">
                         <input id="{{ $item_menu->route }}" type="checkbox" {{ ($item_menu->selected) ? "checked" : "" }} onClick="return setUpdateRoleMenu('{{ $role }}','{{ $item_menu->route }}')">
                         <label for="{{ $item_menu->route }}" class="badge-success"></label>

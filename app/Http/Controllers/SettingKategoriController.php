@@ -75,7 +75,7 @@ class SettingKategoriController extends Controller
             $check_data = MasterInput1::where('kategori_input_id', $delete->id)->get()->count();
             if($check_data >0)
             {
-                return redirect()->route('setting-kategori-input')->with('message', "Gagal dihapus, Role sudah digunakan pada User")->with('color-alert', "warning");    
+                return redirect()->route('setting-kategori-input')->with('message', "Gagal dihapus, Sudah digunakan pada Input 1")->with('color-alert', "warning");    
             }
 
             //hapus di menu

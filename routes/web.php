@@ -12,6 +12,7 @@ use App\Http\Controllers\MasterInputController4;
 use App\Http\Controllers\MasterInputController5;
 use App\Http\Controllers\MasterInputController6;
 use App\Http\Controllers\MasterInputController4Parameter;
+use App\Http\Controllers\Others\Input1Controller;
 use App\Http\Controllers\SettingKategoriController;
 use App\Http\Controllers\SettingRoleController;
 use App\Http\Controllers\PetunjukTeknisController;
@@ -124,6 +125,10 @@ Route::post('/adm-master-input-6-process',[MasterInputController6::class,'proces
 Route::get('/adm-master-input-6-edit/{id}',[MasterInputController6::class,'edit'])->name('adm-master-input-6-edit')->middleware('auth');
 Route::post('/adm-master-input-6-update/{id}',[MasterInputController6::class,'update'])->name('adm-master-input-6-update')->middleware('auth');
 Route::post('/adm-master-input-6-delete',[MasterInputController6::class,'delete'])->name('adm-master-input-6-delete')->middleware('auth');
+
+
+//MENU
+Route::get('/menu-input-1',[Input1Controller::class,'index'])->name('menu-input-1')->middleware('auth');
 // Route::get('/create-admin', function(){
     //     $payload = [
         //         "user_id"=>'admin',

@@ -40,7 +40,7 @@
                         <select class="form-control" name="route_category">
                             <option>-- Select --</option>
                             <option value="superadmin">Super Admin</option>
-                            {{-- <option value="admin">Admin</option> --}}
+                            <option value="admin">Administrator</option>
                             <option value="subadmin">Sub Admin</option>
                             <option value="general">General</option>
                         </select>

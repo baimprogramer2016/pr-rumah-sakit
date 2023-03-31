@@ -29,9 +29,20 @@ class CustomProvider extends ServiceProvider
          
             $menuusersetting = Menu::join('role_menu', 'menu.route','=','role_menu.route')
                                     ->where('menu.route_category','!=','superadmin')
+                                    ->where('menu.route_category','admin')
                                     ->get(['menu.*','role_menu.role']);
           
             $view->with('menuusersetting', $menuusersetting);            
+    
+        });
+        View::composer('*', function ($view) {
+         
+            $menuusersetting2 = Menu::join('role_menu', 'menu.route','=','role_menu.route')
+                                    ->where('menu.route_category','!=','superadmin')
+                                    ->where('menu.route_category','general')
+                                    ->get(['menu.*','role_menu.role']);
+          
+            $view->with('menuusersetting2', $menuusersetting2);            
     
         });
 

@@ -41,7 +41,8 @@
                         <select class="form-control" name="route_category" value="{{ $data_menu_edit->route_category }}">
                             <option value="{{ $data_menu_edit->route_category }}">{{ DescCategory($data_menu_edit->route_category) }}</option>
                             <option value="superadmin">Super Admin</option>
-                            <option value="admin">Admin</option>
+                            <option value="admin">Administrator</option>
+                            <option value="subadmin">Sub Admin</option>
                             <option value="general">General</option>
                         </select>
                     </div>

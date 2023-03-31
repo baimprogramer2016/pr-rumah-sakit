@@ -20,6 +20,25 @@
                 <li class="menu-title">Administrator</li>
                 @if(Auth::User()->user_id == 'superadmin')
                 {{-- from CustomProvider --}}
+                @foreach ($menuadminsetting->where('route_category','admin') as $item_menu_general)
+                <li>
+                    {{-- <a href="{{ route($item_menu_general->route) }}" class="{{ (request()->is($item_menu_general->route)) ? 'active' : '' }}"><i class="{{ $item_menu_general->route_icon }}"></i><span>{{ $item_menu_general->route_name }}</span></a> --}}
+                    <a href="{{ ($item_menu_general->route !='')? route($item_menu_general->route) : '' }}" class="{{ (request()->is($item_menu_general->route)) ? 'active' : '' }}"><i class="{{ $item_menu_general->route_icon }}"></i><span>{{ $item_menu_general->route_name }}</span></a>
+                </li>  
+                @endforeach
+                @else
+                {{-- from CustomProvider --}}
+                
+                @foreach ($menuusersetting->where('role',Auth::User()->user_role) as $item_menu_general)
+                <li>
+                    
+                    <a href="{{ route($item_menu_general->route) }}" class="{{ (request()->is($item_menu_general->route)) ? 'active' : '' }}"><i class="{{ $item_menu_general->route_icon }}"></i><span>{{ $item_menu_general->route_name }}</span></a>
+                </li>  
+                @endforeach
+                @endif
+                <li class="menu-title">Menu</li>
+                @if(Auth::User()->user_id == 'superadmin')
+                {{-- from CustomProvider --}}
                 @foreach ($menuadminsetting->where('route_category','general') as $item_menu_general)
                 <li>
                     {{-- <a href="{{ route($item_menu_general->route) }}" class="{{ (request()->is($item_menu_general->route)) ? 'active' : '' }}"><i class="{{ $item_menu_general->route_icon }}"></i><span>{{ $item_menu_general->route_name }}</span></a> --}}
@@ -28,9 +47,11 @@
                 @endforeach
                 @else
                 {{-- from CustomProvider --}}
-                @foreach ($menuusersetting->where('role',Auth::User()->user_id) as $item_menu_general)
+                
+                @foreach ($menuusersetting2->where('role',Auth::User()->user_role) as $item_menu_general2)
                 <li>
-                    <a href="{{ route($item_menu_general->route) }}" class="{{ (request()->is($item_menu_general->route)) ? 'active' : '' }}"><i class="{{ $item_menu_general->route_icon }}"></i><span>{{ $item_menu_general->route_name }}</span></a>
+                    
+                    <a href="{{ route($item_menu_general2->route) }}" class="{{ (request()->is($item_menu_general2->route)) ? 'active' : '' }}"><i class="{{ $item_menu_general2->route_icon }}"></i><span>{{ $item_menu_general2->route_name }}</span></a>
                 </li>  
                 @endforeach
                 @endif

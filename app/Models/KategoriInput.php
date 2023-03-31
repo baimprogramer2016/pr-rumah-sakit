@@ -9,5 +9,10 @@ class KategoriInput extends Model
 {
     use HasFactory;
     protected $table = 'kategori_input';
-    protected $fillable = ['keterangan','input'];
+    protected $fillable = ['id','keterangan','input'];
+
+
+    public function input1(){
+        return $this->hasMany(MasterInput1::class,'kategori_input_id','id');
+    }
 }
